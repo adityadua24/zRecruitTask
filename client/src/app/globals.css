@@ -1,0 +1,220 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  font-family: "Source Code Pro", Helvetica, sans-serif;
+}
+
+
+*{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App{
+  /* border: 1px solid black; */
+  width: 100%;
+  height: fit-content;
+}
+
+a{
+  text-decoration: none;
+}
+
+button{
+  cursor: pointer;
+}
+
+.auth{
+  border: 1px solid black;
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  background-color: #28B9CC;
+}
+.profile{
+  border: 1px solid black;
+  width: 100%;
+  height: 100vh;
+  overflow-x: scroll;
+  gap: 50px;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  text-align: center;
+  padding: 0 0;
+
+  background-color: #28B9CC;
+}
+
+h1{
+  border-bottom: 1px solid black;
+  padding: 0 0 10px 0;
+}
+
+.auth >form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+  width: 500px;
+  height: fit-content;
+  gap: 20px;
+  padding: 1rem;
+  background-color: white;
+  /* box-shadow: 10px 10px 20px lightgrey; */
+  border: 1.5px solid grey;
+
+}
+.auth >form > input {
+  width: 100%;
+  height: 30px;
+  text-align: center;
+  font-size: 1rem;
+  margin: 4px 0;
+  border-radius: 10px;
+  outline: none;
+  border: 1.5px solid grey;
+  /* padding: 1rem; */
+}
+
+.auth >form > button{
+  width: fit-content ;
+  height: 30px ;
+  background-color: #EAFAFC;
+  border-radius: 10px;
+  outline: none;
+  border: 1.5px solid grey;
+  font-size: 15px;
+  /* margin-left: 0; */
+  transition: all 0.3s;
+  padding: 5px 10px ;
+}
+
+.auth >form > button:hover{
+  transform: translateY(-5px);
+  color: black;
+}
+
+
+
+table {
+  width: 100%;
+  text-align: center;
+  overflow-X: scroll;
+
+}
+
+thead {
+  /* text-align: center; */
+  background-color: #f2f2f2;
+}
+
+tr{
+  width: 100%;
+}
+
+td,th{
+  width: 300px;
+  padding: 5px;
+}
+
+tbody{
+  overflow-x: scroll;
+}
+
+tbody tr:hover {
+  background-color: #f5f5f5;
+}
+
+p {
+  font-style: italic;
+  color: #999;
+}
+.btn{
+  display: flex;
+  border: none;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0;
+}
+.btn>button{
+  width: 100px;
+  padding: 5px;
+  margin: 5px 15px;
+}
+
+.updateDetails{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 350px;
+  height:500px;
+  gap: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 5px 2px 20px black;
+}
+
+.updateDetails > input {
+  width: 100%;
+  height: 30px;
+  text-align: center;
+  font-size: 1rem;
+  margin: 2px 0;
+  border-radius: 10px;
+  outline: none;
+  border: 1.5px solid grey;
+  /* padding: 1rem; */
+}
+
+
+.edit{
+  background-color: #94A3E3;
+  color: white;
+  outline: none;
+  border-radius: 10px;
+  border: 1px solid grey;
+}
+.delete{
+  background-color: #2847C6;
+  color: white;
+  outline: none;
+  border-radius: 10px;
+  border: 1px solid grey;
+}
+
+
+
+@media screen and (max-width: 600px) {
+
+
+  .auth >form {
+
+    width: 90%;
+  }
+
+}
