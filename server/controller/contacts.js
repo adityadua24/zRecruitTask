@@ -102,13 +102,6 @@ export const updateContact = async (req, res) => {
 // Delete a contact
 export const deleteContact = async (req, res) => {
   try {
-    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
-      return res.status(404).json({
-        success: false,
-        message: "Contact not found",
-      });
-    }
-
     const contact = await Contact.findById(req.params.id);
 
     if (!contact) {

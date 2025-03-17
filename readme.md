@@ -1,56 +1,78 @@
-# Interview Task
-## Overview
-Build a full-stack application where users can:
+# Contact Management System
 
-### :white_check_mark: Authentication: 
-* Implement login & signup (JWT-based). (1-1.5 hrs)
+A full-stack web application for managing contacts with user authentication.
 
-### :white_check_mark: CRUD for Contacts:
-* Users can create, view, update, and delete their own contacts. (2-3 hrs)
+## Features
 
-### :white_check_mark: Authorization: 
-* Ensure users can only access their own contacts. (1 hr)
+### Backend
 
-### :white_check_mark: Basic Error Handling:
-* Validate input & return proper error messages. (0.5-1 hr)
+- JWT-based authentication system
+- Complete CRUD operations for contacts
+- MongoDB database integration
+- User-specific contact management (users can only access their own contacts)
+- Input validation and error handling
+- Secure password hashing
 
-## :hourglass_flowing_sand: Bonus (~2 Hours) – Choose One:
-* Rate limiting (prevent abuse). (1 hr)
-* Basic unit test for one critical API endpoint. (1 hr)
-* API documentation (Swagger/Postman collection). (1-1.5 hrs)
-* Support profile picture uploads for contacts (1-2hrs)
+### Frontend
 
-## Disclaimer
-We don't expect the task to be completed 100%. This task is designed to get an idea of what you can accomplish within the given timeframe.
-As long as you can justify your approach with sound technical reasoning, we're interested in seeing:
-- Your problem-solving approach
-- Code organization and structure
-- Technical decision-making
-- Implementation quality over quantity
+- User registration and login
+- Implemented (`CreateContact` component)
+- Implemented (`MyContacts` component)
+- Fixed Toast notifications
+- Changed localstorage to sessionstorage.
 
-Best of luck!
+### Backend
 
-<!-- -------------------------------------------------------------------------------------------- -->
+- Added crud for contacts
+- Added scope in GET calls to only get current user contact data
+- Added test cases for contacts
+- Used a new JWT-secret
 
-## Backend Installation
-* `npm i` to install dependencies
-* Sign up for a MongoDB Atlas account at https://www.mongodb.com/cloud/atlas
-* Create a new cluster (you can use the free tier)
-* Once your cluster is created, click "Connect" and choose "Connect your application"
-* Copy the connection string URI provided
-* Copy the `.env.sample` file to `.env`
-* Add your MongoDB URI to the .env file
-* for running the server you can use --> `npm start` or `npm run dev`
-* it will run the server on port 4500
+## Getting Started
 
-<!-- -------------------------------------------------------------------------------------------- -->
+1. Clone the repository
+2. Install dependencies:
 
-## Frontend Installation
+   ```bash
+   # Install backend dependencies
+   cd server
+   npm install
 
-* go to the frontend directory ---> cd client
+   # Install frontend dependencies
+   cd ../client
+   npm install
+   ```
 
-* install all the dependencies by using --> npm i
-* run `npm run dev` to start the local server
-* it will run the server on --> http://localhost:3000
+3. Set up environment variables:
+   Create a `.env` file in the server directory with:
 
-<!-- -------------------------------------------------------------------------------------------- -->
+   ```
+   MONGO_DB_URI=your_mongodb_uri
+   JWT_SECRET=your_jwt_secret
+   ```
+
+4. Run the application:
+
+   ```bash
+   # Start the backend server (from server directory)
+   npm run dev
+
+   # Start the frontend (from client directory)
+   npm run dev
+   ```
+
+## Testing
+
+The backend includes a test suite for the contacts API. To run the tests:
+
+```bash
+cd server
+npm test
+```
+
+## Room for Enhancements
+
+- Frontend - separate api calls into separate dedicated modules to be reused across the entire app
+- Password reset functionality
+- Expire JWT token periodically and add implementation for refresh token to create fresh access tokens
+-

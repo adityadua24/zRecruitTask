@@ -14,12 +14,7 @@ const contactSchema = new mongoose.Schema(
     number: {
       type: String,
       required: true,
-      validate: {
-        validator: function (v) {
-          return /^\d{10,}$/.test(v);
-        },
-        message: (props) => `${props.value} is not a valid phone number! Must be at least 10 digits.`,
-      },
+      minlength: 10,
     },
     address: {
       type: String,
@@ -30,9 +25,6 @@ const contactSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
-
-// Add index on userId for better query performance
-contactSchema.index({ userId: 1 });
 
 const Contact = mongoose.model("contact", contactSchema);
 
