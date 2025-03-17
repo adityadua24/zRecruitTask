@@ -1,33 +1,11 @@
 "use client";
 
-import {
-  motion,
-  useMotionValue,
-  useSpring,
-  useTransform,
-  AnimatePresence,
-} from "framer-motion";
-import {
-  Children,
-  cloneElement,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from "framer-motion";
+import { Children, cloneElement, useEffect, useMemo, useRef, useState } from "react";
 
 import "./Dock.css";
 
-function DockItem({
-                    children,
-                    className = "",
-                    onClick,
-                    mouseX,
-                    spring,
-                    distance,
-                    magnification,
-                    baseItemSize,
-                  }) {
+function DockItem({ children, className = "", onClick, mouseX, spring, distance, magnification, baseItemSize }) {
   const ref = useRef(null);
   const isHovered = useMotionValue(0);
 
@@ -39,11 +17,7 @@ function DockItem({
     return val - rect.x - baseItemSize / 2;
   });
 
-  const targetSize = useTransform(
-    mouseDistance,
-    [-distance, 0, distance],
-    [baseItemSize, magnification, baseItemSize]
-  );
+  const targetSize = useTransform(mouseDistance, [-distance, 0, distance], [baseItemSize, magnification, baseItemSize]);
   const size = useSpring(targetSize, spring);
 
   return (
@@ -63,9 +37,7 @@ function DockItem({
       role="button"
       aria-haspopup="true"
     >
-      {Children.map(children, (child) =>
-        cloneElement(child, { isHovered })
-      )}
+      {Children.map(children, (child) => cloneElement(child, { isHovered }))}
     </motion.div>
   );
 }
@@ -105,15 +77,15 @@ function DockIcon({ children, className = "" }) {
 }
 
 export default function Dock({
-                               items,
-                               className = "",
-                               spring = { mass: 0.1, stiffness: 150, damping: 12 },
-                               magnification = 70,
-                               distance = 200,
-                               panelHeight = 68,
-                               dockHeight = 256,
-                               baseItemSize = 50,
-                             }) {
+  items,
+  className = "",
+  spring = { mass: 0.1, stiffness: 150, damping: 12 },
+  magnification = 70,
+  distance = 200,
+  panelHeight = 68,
+  dockHeight = 256,
+  baseItemSize = 50,
+}) {
   const mouseX = useMotionValue(Infinity);
   const isHovered = useMotionValue(0);
 
@@ -125,10 +97,7 @@ export default function Dock({
   const height = useSpring(heightRow, spring);
 
   return (
-    <motion.div
-      style={{ height, scrollbarWidth: "none" }}
-      className="dock-outer"
-    >
+    <motion.div style={{ height, scrollbarWidth: "none" }} className="dock-outer">
       <motion.div
         onMouseMove={({ pageX }) => {
           isHovered.set(1);

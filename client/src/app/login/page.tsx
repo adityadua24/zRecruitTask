@@ -1,4 +1,6 @@
-"use client"
+"use client";
 import Login from "@/components/auth/Login";
 
-export default () => <Login />;
+const login = () => <Login />;
+
+export default login;

@@ -1,3 +1,5 @@
 import Register from "@/components/auth/Register";
 
-export default () => <Register />;
+export default function RegisterPage() {
+  return <Register />;
+}
